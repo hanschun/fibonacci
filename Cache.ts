@@ -4,6 +4,10 @@ export class Cache {
     constructor() {
         this.cache = {};
     }
+    
+    isEmpty(): boolean {
+        return Object.keys(this.cache).length === 0;
+    }
 
     getValue(input: number): number {
         if (!this.cache[input]) {
