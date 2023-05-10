@@ -1,4 +1,3 @@
-import { Cache } from "./Cache";
 import { Store } from "./Store";
 
 export class Fibonacci {
