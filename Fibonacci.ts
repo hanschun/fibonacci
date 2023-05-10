@@ -1,10 +1,11 @@
 import { Cache } from "./Cache";
+import { Store } from "./Store";
 
 export class Fibonacci {
-    store: Cache;
+    store: Store;
 
-    constructor() {
-        this.store = new Cache();
+    constructor(store: Store) {
+        this.store = store;
     }
 
     getTerm(index: number): number {

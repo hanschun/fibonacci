@@ -1,4 +1,6 @@
-export class Cache {
+import { Store } from "./Store";
+
+export class Cache implements Store {
     cache: Record<number, number>;
 
     constructor() {
