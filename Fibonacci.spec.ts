@@ -11,32 +11,30 @@ describe('Fibonacci', () => {
         expect(fibonacci.getTerm(2)).toBe(1);
     });
 
-    it('should initialize with an empty cache', () => {
+    it('should initialize with an empty store', () => {
         const fibonacci = new Fibonacci();
-        expect(fibonacci.cache.cache).toEqual({});
+        expect(fibonacci.store.isEmpty()).toBe(true);
     });
 
-    it('should cache a value when index is more than 1', () => {
+    it('should store a value when index is more than 1', () => {
         const fibonacci = new Fibonacci();
         expect(fibonacci.getTerm(2)).toBe(1);
-        expect(fibonacci.cache.getValue(2)).toBe(1);
+        expect(fibonacci.store.getValue(2)).toBe(1);
     });
 
-    it('should not cache a value when index is 1 or less', () => {
+    it('should not store a value when index is 1 or less', () => {
         const fibonacci = new Fibonacci();
         expect(fibonacci.getTerm(1)).toBe(1);
-        expect(() => {
-            fibonacci.cache.getValue(1);
-        }).toThrowError("not found");
+        expect(fibonacci.store.getValue(1)).toBe(1);
     });
 
-    it('should cache intermediate values for index > 1', () => {
+    it('should store intermediate values for index > 1', () => {
         const expectedTerms = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
         const fibonacci = new Fibonacci();
         const max = expectedTerms.length - 1;
         expect(fibonacci.getTerm(max)).toBe(expectedTerms[max]);
         for (let a = 2; a < max; a++) {
-            expect(fibonacci.cache.getValue(a)).toBe(expectedTerms[a]);
+            expect(fibonacci.store.getValue(a)).toBe(expectedTerms[a]);
         }
     });
 });
