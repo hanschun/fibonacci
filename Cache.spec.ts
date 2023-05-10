@@ -3,7 +3,7 @@ import { Cache } from "./Cache";
 describe('Cache', () => {
     it('should instantiate a new empty cache', () => {
         const cache = new Cache();
-        expect(cache.cache).toEqual({});
+        expect(cache.isEmpty()).toBe(true);
     });
 
     it('should set a value to the cache', () => {
